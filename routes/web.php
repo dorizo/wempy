@@ -34,7 +34,7 @@ Route::post('/permissionrole', [App\Http\Controllers\Master\RoleController::clas
 Route::delete('/permissionrole/{permission_role}', [App\Http\Controllers\Master\RoleController::class, 'permission_destroy'])->name('permissionrole.destroy');
 
 Route::resource('beritas', App\Http\Controllers\BeritaController::class);
-Route::resource('beritavideo', App\Http\Controllers\BeritaVideoController::class);
+Route::resource('beritavideo', App\Http\Controllers\BeritavideoController::class);
 Route::resource('role', App\Http\Controllers\Master\RoleController::class);
 Route::resource('user', App\Http\Controllers\Master\UserController::class);
 Route::resource('jabatan', App\Http\Controllers\JabatanController::class);
