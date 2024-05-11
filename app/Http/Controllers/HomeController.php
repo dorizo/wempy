@@ -7,7 +7,7 @@ use Auth;
 use Session;
 use App\Models\Member;
 use App\Models\member_kat;
-use App\Models\Pengeluaran;
+use App\Models\pengeluaran;
 use App\Models\berita;
 use App\Models\beritavideo;
 use App\Models\iuran_member;
