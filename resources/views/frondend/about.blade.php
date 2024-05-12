@@ -13,7 +13,7 @@
             </div>
             <p>
               
-{{ \Illuminate\Support\Str::limit(strip_tags($profile->menuContent->menucontent), 100, $end='...')  }}
+{{ \Illuminate\Support\Str::limit(strip_tags($profile->menuContent->menucontent), 500, $end='...')  }}
             
             </p>
             <a href="{{URL::to('/halaman/'.$profile->menuCode)}}">
