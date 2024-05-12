@@ -60,8 +60,23 @@ class WhatsappController extends Controller
     public function store(StorewhatsappRequest $request): RedirectResponse
     {
         //
-        whatsapp::create($request->all());
-        return redirect()->route('jabatan.index')->withSuccess("jabatan baru berhasil di tambah");
+        
+        $fileName = time().'_'.$request->file("gambar")->getClientOriginalName();
+        $filePath = $request->file('gambar')->storeAs('uploads', $fileName, 'public');
+        $name = time().'_'.$request->file("gambar")->getClientOriginalName();
+        
+        $param = array();
+        if($request->file("gambar")){
+        $param["whatsappName"] = $request->get("whatsappName");
+        $param["WhatsappDesc"] = $request->get("WhatsappDesc");
+        $param["type"] = $request->get("type");
+        $param["gambar"] = $fileName;
+        }else{
+            echo "kosong";
+        };
+        whatsapp::create($param);
+        
+        return redirect()->route('whatsapp.index')->withSuccess("jabatan baru berhasil di tambah");
 
     }
 
@@ -120,6 +135,10 @@ class WhatsappController extends Controller
      */
     public function destroy(whatsapp $whatsapp)
     {
+        
+        $whatsapp->delete();
+        return redirect()->back()
+                ->withSuccess('Berhasil Dihapus');
         //
     }
     public function submitdetail(Request  $request){

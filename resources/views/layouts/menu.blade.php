@@ -75,7 +75,16 @@
               </ul>
             </li>
             @endif
-
+            @if(permission("Cmamber"))
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>setting WA</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{{route('settingblash.index')}}">Liat</a></li> 
+                <li><a class="nav-link" href="{{route('settingblash.create')}}">Buat</a></li>    
+              </ul>
+            </li>
+            @endif
+            
             @if(permission("Cuser"))
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>User</span></a>

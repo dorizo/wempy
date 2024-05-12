@@ -47,6 +47,7 @@ Route::resource('member', App\Http\Controllers\MemberController::class);
 Route::post('member/changepw', [App\Http\Controllers\MemberController::class, 'changepw'])->name('member.changepwput');
 Route::put('menu/{menu}/menucontent', [App\Http\Controllers\MenuController::class, 'menucontent'])->name('menu.menucontent');
 Route::post('whatsapp/submitdetail', [App\Http\Controllers\WhatsappController::class, 'submitdetail']);
+Route::resource('settingblash', App\Http\Controllers\SettingblashController::class);
 
 Route::resource('iuran', App\Http\Controllers\IuranController::class);
 Route::resource('pengeluaran', App\Http\Controllers\PengeluaranController::class);
