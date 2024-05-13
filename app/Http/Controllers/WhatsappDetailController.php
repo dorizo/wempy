@@ -165,7 +165,7 @@ class WhatsappDetailController extends Controller
                                 // 'number' =>
                                 // 'media_type' => 
                                 // 'caption' =>
-                                // 'url' => "https://wa.mekhaenergy.com/storage/uploads/1715426771_wempy.jpg"//URL::to("storage/uploads/".$value->wa->gambar),
+                                // 'url' => ""//URL::to("storage/uploads/".$value->wa->gambar),
                                 // ];
                                 // $curl = curl_init();                            
                                 // curl_setopt_array($curl, array(

@@ -51,9 +51,11 @@ class SendWa implements ShouldQueue
             'number' => $this->number ,
             'media_type' => $this->media_type ,
             'caption' =>  $this->caption,
-            'url' => "https://wa.mekhaenergy.com/storage/uploads/1715426771_wempy.jpg"
-            // $this->url
+            'url' => $this->url
             ];
+            
+            // $this->url
+            // "https://wa.mekhaenergy.com/storage/uploads/1715426771_wempy.jpg"
             // echo json_encode($data);
             // die();
             $curl = curl_init();                            
