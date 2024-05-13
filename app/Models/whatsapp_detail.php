@@ -14,7 +14,7 @@ class whatsapp_detail extends Model
     protected $table = 'whatsapp_details';
      
     public function member() {
-        return $this->belongsTo('App\Models\member' , 'memberCode' ,'memberCode');
+        return $this->belongsTo('App\Models\Member' , 'memberCode' ,'memberCode');
     }
     public function wa() {
         return $this->belongsTo('App\Models\whatsapp' , 'whatsappCode' ,'whatsappCode');
