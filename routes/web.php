@@ -59,6 +59,9 @@ Route::get('/api/member/{id}', [App\Http\Controllers\MemberController::class, 'l
 Route::get('/api/runwa/{id}', [App\Http\Controllers\MemberController::class, 'runwa']);
 Route::get('/api/sendwa/{id}/{whatsappCode}', [App\Http\Controllers\WhatsappDetailController::class, 'sendwa']);
 
+Route::get('/whatsapp/run/{whatsappCode}', [App\Http\Controllers\WhatsappDetailController::class, 'wapanels']);
+
+
 Route::get('/home/beritavideo', [App\Http\Controllers\HomeController::class, 'beritavideo'])->name('home.beritavideo');
 
 

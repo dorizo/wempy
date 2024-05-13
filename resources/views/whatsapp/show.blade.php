@@ -14,7 +14,7 @@
                           @if($run=="on")
                         <a href="{{Request::url()}}?run=off"><div class="alert alert-success">Whatsapp  ON<br /> untuk menjalankan fungsi ini applikasi harus stand by di browser</div></a>
                          @else
-                         <a href="{{Request::url()}}?run=on"><div class="alert alert-danger">Whatsapp  OFF</div></a>
+                         <a target="_BLANK" href="{{URL::to('whatsapp/run/'.$single->whatsappCode)}}"><div class="alert alert-danger">Whatsapp  OFF</div></a>
 
                          
                           @endif

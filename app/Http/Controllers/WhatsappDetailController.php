@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendWa;
+use App\Models\Settingblash;
 use App\Models\whatsapp_detail;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use App\Http\Requests\Storewhatsapp_detailRequest;
 use App\Http\Requests\Updatewhatsapp_detailRequest;
-use Illuminate\Support\Facades\DB;
 
 class WhatsappDetailController extends Controller
 {
@@ -120,5 +123,83 @@ class WhatsappDetailController extends Controller
     public function destroy(whatsapp_detail $whatsapp_detail)
     {
         //
+    }
+
+    public function wapanels($id){
+        $m = Settingblash::get()->toArray();
+        $ssss = count($m)-1;
+        $s = whatsapp_detail::where("whatsappCode" , $id)->get();
+
+        
+                //     $curl = curl_init();
+
+                //     curl_setopt_array($curl, array(
+                //     CURLOPT_URL => 'https://wa.srv34.wapanels.com/send-media',
+                //     CURLOPT_RETURNTRANSFER => true,
+                //     CURLOPT_ENCODING => '',
+                //     CURLOPT_MAXREDIRS => 10,
+                //     CURLOPT_SSL_VERIFYPEER => false,
+                //     CURLOPT_TIMEOUT => 0,
+                //     CURLOPT_FOLLOWLOCATION => true,
+                //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                //     CURLOPT_CUSTOMREQUEST => 'POST',
+                //     CURLOPT_POSTFIELDS => array('api_key' => 'ff7823c3189e5e1547e470eeb10e7ff61627f5d9','sender' => '6282310777783','number' => '62895640035735','caption' => 'leni leni leni ','url' => 'https://wa.mekhaenergy.com/storage/uploads/1715426771_wempy.jpg','media_type' => 'image'),
+                //     CURLOPT_HTTPHEADER => array(
+                //         'Content-Type: application/json'
+                //     ),
+                //     ));
+
+                //     $response = curl_exec($curl);
+
+                //     curl_close($curl);
+                //     echo $response;
+                // die();
+        foreach ($s as $key => $value) {
+            switch ($value->wa->type) {
+                case 'gambar':
+                        $job = new SendWa($m[rand(0,$ssss)]["apikey"] ,$m[rand(0,$ssss)]["phone"], $value->member->telp,'image', URL::to("storage/uploads/".$value->wa->gambar) ,$value->wa->WhatsappDesc);
+                        $this->dispatch($job);
+                                // $data = [
+                                // 'api_key' => ,
+                                // 'sender' =>  
+                                // 'number' =>
+                                // 'media_type' => 
+                                // 'caption' =>
+                                // 'url' => "https://wa.mekhaenergy.com/storage/uploads/1715426771_wempy.jpg"//URL::to("storage/uploads/".$value->wa->gambar),
+                                // ];
+                                // $curl = curl_init();                            
+                                // curl_setopt_array($curl, array(
+                                // CURLOPT_URL => 'https://wa.srv34.wapanels.com/send-media',
+                                // CURLOPT_RETURNTRANSFER => true,
+                                // CURLOPT_ENCODING => '',
+                                // CURLOPT_MAXREDIRS => 10,
+                                // CURLOPT_SSL_VERIFYPEER => false,
+                                // CURLOPT_TIMEOUT => 0,
+                                // CURLOPT_FOLLOWLOCATION => true,
+                                // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                // CURLOPT_CUSTOMREQUEST => 'POST',
+                                // CURLOPT_POSTFIELDS => json_encode($data),
+                                // CURLOPT_HTTPHEADER => array(
+                                // 'Content-Type: application/json'
+                                // ),
+                                // ));                          
+                                // $response = curl_exec($curl); 
+                                // if(curl_exec($curl)){ // ?? - if request and data are completely received
+                                // continue;
+                                // }else{
+                                // break;
+                                // }                               
+                                // curl_close($curl);
+                                // echo $response;
+                   
+                    break;
+                    case 'text':
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
+    
     }
 }

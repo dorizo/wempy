@@ -12,4 +12,11 @@ class whatsapp_detail extends Model
     protected $fillable = ['whatsappdetailstatus','memberCode','whatsappCode'];
     protected $primaryKey = 'whatsappdetailCode';
     protected $table = 'whatsapp_details';
+     
+    public function member() {
+        return $this->belongsTo('App\Models\member' , 'memberCode' ,'memberCode');
+    }
+    public function wa() {
+        return $this->belongsTo('App\Models\whatsapp' , 'whatsappCode' ,'whatsappCode');
+    }
 }
