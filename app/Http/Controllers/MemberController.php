@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
-use App\Models\jabatan;
+use App\Models\Jabatan;
 use App\Models\User;
 use App\Models\member_kat;
 use App\models\whatsapp_detail;
