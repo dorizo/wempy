@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\member_kat;
 use App\models\whatsapp_detail;
 use App\Models\Master\user_role;
-use App\Models\Maseter\role;
+use App\Models\Maseter\Role;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
 use Illuminate\Support\Facades\Hash;
